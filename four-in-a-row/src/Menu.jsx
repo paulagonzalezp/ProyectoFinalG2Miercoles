@@ -8,13 +8,11 @@ const Menu = ({showLoad, setShowLoad, isGameStarted, isGameReady, setGame, setSe
   setLoadGame(game)
   setSelected({dropdown1: `${game.jugador1.id}`, dropdown2: `${game.jugador2.id}`})
 
-  // Asegúrate de que el tablero es un array
   const tablero = typeof game.tablero === "string" ? JSON.parse(game.tablero) : game.tablero;
   const fichasJugador1 = tablero.flat().filter(f => f === 1 || f === "🔴").length;
   const fichasJugador2 = tablero.flat().filter(f => f === 2 || f === "🟡").length;
 
   if (game.estado === 'finalizado') {
-    // Detectar empate: ambos jugadores han puesto 21 fichas y no hay ganador
     if (fichasJugador1 === 21 && fichasJugador2 === 21 && !game.ganador) {
       setIsGameFinished(true)
       setWinner("Empate 🤝")

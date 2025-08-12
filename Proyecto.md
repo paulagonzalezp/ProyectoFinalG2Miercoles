@@ -63,7 +63,7 @@ Se incorporaron íconos vectoriales mediante react-icons para un diseño ligero 
 Las peticiones HTTP se manejan a través de la API fetch, centralizadas en funciones ubicadas en `src/api/index.js`, asegurando la separación de la lógica de comunicación con el resto de la aplicación.
 
 **Tipo de Aplicación:**  
-El backend funciona como una API multi-página (MPA) mientras que el frontend se comporta como una aplicación de página única (SPA), donde React controla las interacciones sin recargar toda la interfaz.
+El backend funciona como una API, mientras que el frontend se comporta como una aplicación de página única (SPA), donde React controla las interacciones sin recargar toda la interfaz.
 
 **Modelo SaaS/PaaS:**  
 El sistema no depende de un SaaS público, pero es compatible para su despliegue en plataformas PaaS como Azure App Service o Vercel. En el entorno académico, se ejecuta localmente con una arquitectura escalable.

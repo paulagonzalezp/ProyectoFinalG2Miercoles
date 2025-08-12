@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.project-wrapper{
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  .main-container {
+      width: 100%;
+  }
+  background-color: #141620;
+}

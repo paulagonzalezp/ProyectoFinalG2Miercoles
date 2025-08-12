@@ -10,7 +10,7 @@ El backend está desarrollado con .NET y se encuentra en la carpeta `API4EnLinea
 
 1.  Abre la terminal y navega hasta la carpeta del proyecto.
 
-    cd ProyectoFinalG2Miercoles/API4EnLinea
+    cd ProyectoFinalG2Miercoles/API4EnLinea/Connect4API
 
 2.  Inicia la API con el siguiente comando:
 

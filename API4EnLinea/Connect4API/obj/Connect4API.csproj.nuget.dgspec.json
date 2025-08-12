@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitHub\\ProyectoFinalG2_SC-701\\API4EnLinea\\Connect4API\\Connect4API.csproj": {}
+    "C:\\GitHub\\ProyectoFinalG2Miercoles\\API4EnLinea\\Connect4API\\Connect4API.csproj": {}
   },
   "projects": {
-    "C:\\GitHub\\ProyectoFinalG2_SC-701\\API4EnLinea\\Connect4API\\Connect4API.csproj": {
+    "C:\\GitHub\\ProyectoFinalG2Miercoles\\API4EnLinea\\Connect4API\\Connect4API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\ProyectoFinalG2_SC-701\\API4EnLinea\\Connect4API\\Connect4API.csproj",
+        "projectUniqueName": "C:\\GitHub\\ProyectoFinalG2Miercoles\\API4EnLinea\\Connect4API\\Connect4API.csproj",
         "projectName": "Connect4API",
-        "projectPath": "C:\\GitHub\\ProyectoFinalG2_SC-701\\API4EnLinea\\Connect4API\\Connect4API.csproj",
+        "projectPath": "C:\\GitHub\\ProyectoFinalG2Miercoles\\API4EnLinea\\Connect4API\\Connect4API.csproj",
         "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\ProyectoFinalG2_SC-701\\API4EnLinea\\Connect4API\\obj\\",
+        "outputPath": "C:\\GitHub\\ProyectoFinalG2Miercoles\\API4EnLinea\\Connect4API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

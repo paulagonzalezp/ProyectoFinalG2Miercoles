@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J0ZbNFWixEI=",
+  "dgSpecHash": "qjTuhUYPqho=",
   "success": true,
-  "projectFilePath": "C:\\GitHub\\ProyectoFinalG2_SC-701\\API4EnLinea\\Connect4API\\Connect4API.csproj",
+  "projectFilePath": "C:\\GitHub\\ProyectoFinalG2Miercoles\\API4EnLinea\\Connect4API\\Connect4API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\maria\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\maria\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

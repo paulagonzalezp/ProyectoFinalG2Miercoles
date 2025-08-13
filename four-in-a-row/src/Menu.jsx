@@ -1,40 +1,48 @@
 import React, { useState } from 'react';
 import './Menu.scss';
 
-const Menu = ({showLoad, setShowLoad, isGameStarted, isGameReady, setGame, setSelected, setWinner, setPlayer, setIsGameReady, mode, setMode, allGames, setLoadGame, setIsGameStarted, setIsGameFinished}) => {
+const englishMapper = {
+  finalizado: 'Finished',
+  iniciado: 'Started'
+}
+
+const Menu = ({setIsDraw, showLoad, setShowLoad, isGameStarted, isGameReady, setGame, setSelected, setWinner, setPlayer, setIsGameReady, mode, setMode, allGames, setLoadGame, setIsGameStarted, setIsGameFinished}) => {
 
   const handlePlayClick = (game) => {
-  setMode('playingLoad')
-  setLoadGame(game)
-  setSelected({dropdown1: `${game.jugador1.id}`, dropdown2: `${game.jugador2.id}`})
-
-  const tablero = typeof game.tablero === "string" ? JSON.parse(game.tablero) : game.tablero;
-  const fichasJugador1 = tablero.flat().filter(f => f === 1 || f === "🔴").length;
-  const fichasJugador2 = tablero.flat().filter(f => f === 2 || f === "🟡").length;
-
-  if (game.estado === 'finalizado') {
-    if (fichasJugador1 === 21 && fichasJugador2 === 21 && !game.ganador) {
+    setMode('playingLoad')
+    setLoadGame(game)
+    setSelected({dropdown1: `${game.jugador1.id}`, dropdown2: `${game.jugador2.id}`})
+    setIsDraw(false)
+    if (game.resultado === 'empate' && game.estado === 'finalizado') {
       setIsGameFinished(true)
-      setWinner("Empate 🤝")
+      setWinner(undefined)
+      setIsDraw(true)
+    } else if (game.estado === 'finalizado') {
+      setIsGameFinished(true)
+      setWinner(game.turno === 1 ? "🔴" : "🟡") // era turno del que perdio, entonces gana el anterior
     } else {
-      setIsGameFinished(true)
-      setWinner(game.turno === 1 ? "🔴" : "🟡")
+      setIsGameStarted(true)
+      setIsGameFinished(false)
+      setPlayer(game.turno === 0 ? "🔴" : "🟡")
+      setGame({partida: game})
     }
-  } else {
+    setIsGameReady(true)
     setIsGameStarted(true)
-    setIsGameFinished(false)
-    setPlayer(game.turno === 0 ? "🔴" : "🟡")
-    setGame({partida: game})
+  };
+
+  const handleNewGame = () => {
+    if (mode === 'new') {
+      setMode('newGame')
+    } else {
+      setMode('new')
+    }
   }
-  setIsGameReady(true)
-  setIsGameStarted(true)
-};
 
   return (
     <div className="menu">
 
       <div className="menu__buttons">
-        <button onClick={() => setMode('new')} className="menu__button">
+        <button onClick={handleNewGame} className="menu__button">
           New Game
         </button>
         <button onClick={() => setMode('load')} className="menu__button">
@@ -51,29 +59,28 @@ const Menu = ({showLoad, setShowLoad, isGameStarted, isGameReady, setGame, setSe
                 <th>Player 1</th>
                 <th>Player 2</th>
                 <th>State</th>
+                <th>Result</th>
                 <th>Play</th>
               </tr>
             </thead>
             <tbody>
-              {allGames
-                .slice()
-                .sort((a, b) => new Date(b.fechaHora) - new Date(a.fechaHora))
-                .map((game) => (
-                  <tr key={game.id}>
-                    <td>{game.fechaHora}</td>
-                    <td>{game.jugador1.nombre}</td>
-                    <td>{game.jugador2.nombre}</td>
-                    <td>{game.estado}</td>
-                    <td>
-                      <button
-                        className="menu__play-button"
-                        onClick={() => handlePlayClick(game)}
-                      >
-                        Play
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+              {allGames.map((game) => (
+                <tr key={game.id}>
+                  <td>{game.fechaHora}</td>
+                  <td>{game.jugador1.nombre}</td>
+                  <td>{game.jugador2.nombre}</td>
+                  <td>{englishMapper[game.estado]}</td>
+                  <td>{game.resultado === "pendiente" ? "Pending" : game.resultado === 'empate' ? "Draw" : `Winner ${game.jugador1.id === Number(game.resultado) ? game.jugador1.nombre : game.jugador2.nombre}`}</td>
+                  <td>
+                    <button
+                      className="menu__play-button"
+                      onClick={() => handlePlayClick(game)}
+                    >
+                      Play
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
